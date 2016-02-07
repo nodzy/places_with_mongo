@@ -4,6 +4,6 @@ App:
 - Uses aggregation pipeline queries
 - Creates an index and uses geolocation queries
 - Uses GridFS file storage and retrieval
-Serve content to the web:
+Serves content to the web:
 - Has ability to manage places and photos and associate photos with a nearby place
 - View places and their associated photos
