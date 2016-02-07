@@ -140,5 +140,4 @@ production:
   clients:
     default:
       uri: <%= ENV['MONGOLAB_URI'] %>
-      options:
-        conntect_timeout: 15
+     
