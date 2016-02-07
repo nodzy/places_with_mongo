@@ -20,7 +20,7 @@ class Place
   end
 
   def self.collection
-    self.mongo_client['places']
+    self.mongo_client['mongo_places']
 
   end
 
