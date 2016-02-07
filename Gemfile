@@ -53,3 +53,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'mongo', '~> 2.1.0'
 gem 'mongoid', '~> 5.0.0'
 gem 'exifr'
+
+group :production do
+gem 'pg' 
+gem 'rails_12factor'
+end
