@@ -1,0 +1,15 @@
+<div class = "center jumbotron">
+<h1>Photos for this place </h1>
+</div>
+
+<div class = "container">
+<div class = "photo">
+<% @place.photos.each do |photo| %>
+<td><h2><%= @place.formatted_address %></td></h2>
+<td><img height="500px" width="650px" src= <%= photos_show_path("#{photo.id}")%>/></td>
+</tr>
+<% end %>
+</div>
+
+<div class = "number"><%= link_to 'Go back', places_path %></td></div>
+</div>

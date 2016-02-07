@@ -1,0 +1,30 @@
+<div class = "center jumbotron">
+<h1>Listing places from GridFS</h1>
+</div>
+
+<div class = "container">
+
+
+<table class="table">
+<% @places.each do |place| %>
+<% photo=place.photos.sample %>
+
+<tr class=<%= cycle('even', 'odd') %>>
+
+<td style= "height:100px;">
+<td><%= place.formatted_address %></td>
+
+<td><%= link_to 'Show', place_path(place) %></td>
+<% if photo %>
+
+<td><img height="90px" width="120px"  src= <%= photos_show_path("#{photo.id}")%>/></td></tr>
+<% end %>
+<% end %>
+
+</table>
+
+</div>
+</div>
+
+
+
