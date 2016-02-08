@@ -56,7 +56,12 @@ def save
   else
     description[:metadata][:location] = @location.to_hash
     description[:metadata][:place] = @place
-    self.class.mongo_client.database.fs.find(:_id=> BSON::ObjectId.from_string(@id)).update_one(description)
+    
+	
+	if @id && @id.class == String
+	self.class.mongo_client.database.fs.find(:_id=> BSON::ObjectId.from_string(@id)).update_one(description) 
+	else self.class.mongo_client.database.fs.find(:_id=> @id).update_one(description)
+	end
 
   end
 end
@@ -121,8 +126,8 @@ end
 def find_nearest_place_id(maximum_distance)
 
   if result = Place.near(@location, maximum_distance) 
-    result.limit(1).projection(:_id=>1).each {|r| result=r} 
-    return result[:_id]
+    result.limit(1).projection(:_id=>1).each {|r| result=r[:_id]} 
+    return result
   else
 
     return 0

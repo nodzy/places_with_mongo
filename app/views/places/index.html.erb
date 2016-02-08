@@ -3,7 +3,7 @@
 </div>
 
 <div class = "container">
-
+<h3>Find photos taken nearest given location</h3>
 
 <table class="table">
 <% @places.each do |place| %>
@@ -14,10 +14,13 @@
 <td style= "height:100px;">
 <td><%= place.formatted_address %></td>
 
+
 <td><%= link_to 'Show', place_path(place) %></td>
 <% if photo %>
 
 <td><img height="90px" width="120px"  src= <%= photos_show_path("#{photo.id}")%>/></td></tr>
+<% else %>
+<div class="number"> <td>No photos found! </td></div>
 <% end %>
 <% end %>
 
